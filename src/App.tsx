@@ -1,7 +1,7 @@
 import { Row } from 'react-bootstrap';
 import { Route, Routes } from 'react-router-dom';
 
-import { Header, SideBar, Main } from './components/Layout';
+import { Header, SideBar, Main } from './components';
 import { Orders, Products } from './pages';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
