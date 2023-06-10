@@ -1,9 +1,12 @@
+import clsx from 'clsx';
+
 import { Container, Navbar } from 'react-bootstrap';
+
 import styles from './Header.module.scss';
 
 const Header = () => {
   return (
-    <header className="bg-white">
+    <header className={clsx("bg-white", styles.header)}>
       <Navbar>
         <Container>
           <Navbar.Brand className={styles.brand}>INVENTORY</Navbar.Brand>

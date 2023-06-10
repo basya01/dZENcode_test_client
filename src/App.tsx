@@ -1,22 +1,19 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container } from 'react-bootstrap';
-import './App.scss';
-import { Header } from './components/Layout';
+import { Header, SideBar } from './components';
 
-const MainContent = () => {
-  return (
-    <Container>
-      <h1>Заголовок страницы</h1>
-      <p>Основное содержимое страницы...</p>
-    </Container>
-  );
-};
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
+import { Col, Container, Row } from 'react-bootstrap';
 
 const App = () => {
   return (
-    <div>
+    <div className="header-sidebar-container">
       <Header />
-      <MainContent />
+      <Row className="sidebar-row m-0">
+        <SideBar />
+        <Col sm={9} md={10} className="content">
+          <Container fluid></Container>
+        </Col>
+      </Row>
     </div>
   );
 };

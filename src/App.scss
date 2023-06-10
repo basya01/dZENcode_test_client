@@ -1,0 +1,25 @@
+.header-sidebar-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-row {
+  flex-shrink: 0;
+}
+
+.header-navbar {
+  margin-bottom: 0;
+}
+
+.sidebar-row {
+  flex-grow: 1;
+}
+
+.sidebar {
+  height: 100%;
+}
+
+.content {
+  height: 100%;
+}
