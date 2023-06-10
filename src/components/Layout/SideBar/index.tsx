@@ -3,9 +3,10 @@ import clsx from 'clsx';
 
 import styles from './SideBar.module.scss';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const sidebarItems = [
-  { id: 1, value: 'Приход', to: '/orders' },
+  { id: 1, value: 'Приход', to: '/' },
   { id: 2, value: 'Продукты', to: '/products' },
 ];
 
@@ -35,7 +36,7 @@ const SideBar = () => {
             )}
             onClick={() => setActive(item.id)}
           >
-            {item.value}
+            <Link to={item.to}>{item.value}</Link>
           </li>
         ))}
       </ul>

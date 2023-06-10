@@ -1,5 +1,6 @@
-import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Col, Container } from 'react-bootstrap';
+import { Orders, Products } from '../../../pages';
 
 const Main = () => {
   return (
@@ -9,7 +10,12 @@ const Main = () => {
       md={10}
       className="d-flex justify-content-center align-items-center"
     >
-      <Container fluid>Main</Container>
+      <Container fluid>
+        <Routes>
+          <Route path="/" element={<Orders />} />
+          <Route path="/products" element={<Products />} />
+        </Routes>
+      </Container>
     </Col>
   );
 };
