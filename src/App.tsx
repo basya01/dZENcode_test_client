@@ -1,20 +1,25 @@
-import { Header, SideBar } from './components';
+import { Row } from 'react-bootstrap';
+import { Route, Routes } from 'react-router-dom';
+
+import { Header, SideBar, Main } from './components/Layout';
+import { Orders, Products } from './pages';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
-import { Col, Container, Row } from 'react-bootstrap';
-import Main from './components/Layout/Main';
 
-const App = () => {
-  return (
-    <div className="header-sidebar-container">
-      <Header />
-      <Row className="sidebar-row m-0">
-        <SideBar />
-        <Main />
-      </Row>
-    </div>
-  );
-};
+const App = () => (
+  <div className="vh-100 d-flex flex-column">
+    <Header />
+    <Row className="m-0 flex-grow-1">
+      <SideBar />
+      <Routes>
+        <Route path="/" element={<Main />}>
+          <Route path="/" element={<Orders />} />
+          <Route path="/products" element={<Products />} />
+        </Route>
+      </Routes>
+    </Row>
+  </div>
+);
 
 export default App;

@@ -1,9 +1,9 @@
+import { useState } from 'react';
 import { Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 
 import styles from './SideBar.module.scss';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const sidebarItems = [
   { id: 1, value: 'Приход', to: '/' },

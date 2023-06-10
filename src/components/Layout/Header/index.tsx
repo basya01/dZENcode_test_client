@@ -1,6 +1,5 @@
+import { Container } from 'react-bootstrap';
 import clsx from 'clsx';
-
-import { Container, Navbar } from 'react-bootstrap';
 
 import styles from './Header.module.scss';
 
