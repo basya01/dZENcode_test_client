@@ -6,17 +6,22 @@ import styles from './Header.module.scss';
 
 const Header = () => {
   return (
-    <header className={clsx("bg-white", styles.header)}>
+    <header className={clsx('bg-white', styles.header)}>
       <Navbar>
         <Container>
           <Navbar.Brand className={styles.brand}>INVENTORY</Navbar.Brand>
-          <div>
+          <div className="d-flex align-items-center">
             <div>
-              <p>Вторник</p>
+              <div>
+                <p>Вторник</p>
+              </div>
+              <div className="d-flex mt-2">
+                <p>06 Апр, 2017</p>
+                <p className="ml-2">17:20</p>
+              </div>
             </div>
-            <div className="d-flex mt-2">
-              <p>06 Апр, 2017</p>
-              <p className="ml-2">17:20</p>
+            <div className="ml-3">
+              <p>Кол-во сессий: 2</p>
             </div>
           </div>
         </Container>
