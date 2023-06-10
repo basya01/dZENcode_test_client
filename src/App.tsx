@@ -11,7 +11,7 @@ const App = () => {
       <Row className="sidebar-row m-0">
         <SideBar />
         <Col sm={9} md={10} className="content">
-          <Container fluid></Container>
+          <Container fluid>sfdsf</Container>
         </Col>
       </Row>
     </div>
