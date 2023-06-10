@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className={clsx('bg-white', styles.header)}>
       <Container className="d-flex align-items-center py-3 justify-content-between">
-        <Navbar.Brand className={styles.brand}>INVENTORY</Navbar.Brand>
+        <h1 className={styles.brand}>INVENTORY</h1>
         <div className="d-flex align-items-center">
           <div>
             <div>
