@@ -2583,10 +2583,8 @@ const Orders = () => {
   const handlerSelectProduct = (order: Order) => {
     setSelected(order);
   };
-  console.log(selected);
 
   return (
-    // <div className={clsx('w-100', selected && 'd-flex')}>
     <Row>
       <Col>
         <div className={styles.orders} style={{ width: '100%' }}>
@@ -2606,7 +2604,6 @@ const Orders = () => {
         </Col>
       )}
     </Row>
-    // </div>
   );
 };
 
