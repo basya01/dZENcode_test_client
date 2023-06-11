@@ -2589,10 +2589,7 @@ const Orders = () => {
     // <div className={clsx('w-100', selected && 'd-flex')}>
     <Row>
       <Col>
-        <div
-          className={styles.orders}
-          style={{ width: '100%' }}
-        >
+        <div className={styles.orders} style={{ width: '100%' }}>
           {items.map((item) => (
             <OrderPreview
               key={item.id}

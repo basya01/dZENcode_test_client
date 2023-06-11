@@ -3,4 +3,6 @@
   flex-direction: column;
   gap: 10px;
   transition: width 0.2s ease-out;
+  max-height: 80vh;
+  overflow-y: auto;
 }

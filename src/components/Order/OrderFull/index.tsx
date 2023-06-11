@@ -10,14 +10,9 @@ import { Col, Row } from 'react-bootstrap';
 interface OrderFullProps {
   order: Order;
   className?: string;
-  onDelete?: () => void;
 }
 
-const OrderFull: React.FC<OrderFullProps> = ({
-  order,
-  className,
-  onDelete,
-}) => {
+const OrderFull: React.FC<OrderFullProps> = ({ order, className }) => {
   return (
     <div className={clsx(className, styles.order)}>
       <h2 className="font-weight-bold h3">{order.title}</h2>
@@ -36,7 +31,7 @@ const OrderFull: React.FC<OrderFullProps> = ({
 interface ProductItemProps {
   product: Product;
   className?: string;
-  onDelete?: () => void;
+  onDelete?: (id: number) => void;
 }
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -96,6 +91,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
           src={removeIcon}
           alt="remove_icon"
           role="button"
+          onAbort={() => onDelete && onDelete(product.id)}
         />
       </Col>
     </Row>
