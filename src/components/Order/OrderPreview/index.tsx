@@ -8,11 +8,14 @@ import calculateTotalAmount from '../../../utils/calcTotaPriceProducts';
 import styles from './OrderPreview.module.scss';
 
 import listIcon from '../../../assets/list.svg';
-import removeIcon from '../../../assets/remove.svg';
+import arrowIcon from '../../../assets/arrow.svg';
+
+import { RemoveButton } from '../..';
 
 interface OrderPreviewProps {
   order: Order;
   short?: boolean;
+  selected?: boolean;
   className?: string;
   onOpen?: (order: Order) => void;
 }
@@ -22,16 +25,17 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({
   className,
   short,
   onOpen,
+  selected,
 }) => {
   const { day, month, year, monthStr } = getDateData(order.createdAt);
   const { usd, uah } = calculateTotalAmount(order.products || []);
-
+  
   return (
     <div className={clsx(styles.order, className)}>
       {!short && <h3 className="w-50">{order.title}</h3>}
       <div
         className={clsx(
-          'd-flex justify-content-between align-items-center',
+          'd-flex justify-content-between align-items-center pr-5',
           !short ? 'w-50' : 'w-100'
         )}
       >
@@ -63,16 +67,19 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({
               <p className={styles.order_secondary_text}>{`${usd} $`}</p>
               <p>{`${uah} UAH`}</p>
             </div>
-            <img
-              draggable="false"
-              className={styles.order__remove_icon}
-              src={removeIcon}
-              alt="remove_icon"
-              role="button"
-            />
+            <RemoveButton />
           </>
         )}
       </div>
+      {selected && (
+        <div className={styles.order__selected_arrow}>
+          <img
+            className={styles.order__selected_arrow__icon}
+            src={arrowIcon}
+            alt=">"
+          />
+        </div>
+      )}
     </div>
   );
 };
