@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import clsx from 'clsx';
-import { OrderPreview } from '../../components';
+import { OrderFull, OrderPreview } from '../../components';
 import { Order } from '../../models';
 
 import styles from './Orders.module.scss';
@@ -380,13 +380,11 @@ const Orders = () => {
   const handlerSelectProduct = (order: Order) => {
     setSelected(order);
   };
+  console.log(selected);
 
   return (
     <div className={clsx('w-100', selected && 'd-flex')}>
-      <div
-        className={styles.orders}
-        style={{ width: selected ? 350 : '100%' }}
-      >
+      <div className={styles.orders} style={{ width: selected ? 350 : '100%' }}>
         {items.map((item) => (
           <OrderPreview
             key={item.id}
@@ -396,6 +394,7 @@ const Orders = () => {
           />
         ))}
       </div>
+      {selected && <OrderFull order={selected} className="ml-3" />}
     </div>
   );
 };

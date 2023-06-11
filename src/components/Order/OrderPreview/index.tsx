@@ -42,6 +42,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({
             onClick={() => onOpen && onOpen(order)}
           >
             <img
+              draggable="false"
               className={styles.order__list_icon}
               src={listIcon}
               alt="open_products_icon"
@@ -63,6 +64,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({
               <p>{`${uah} UAH`}</p>
             </div>
             <img
+              draggable="false"
               className={styles.order__remove_icon}
               src={removeIcon}
               alt="remove_icon"
