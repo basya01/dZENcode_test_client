@@ -7,7 +7,7 @@ const Main = () => {
       as="main"
       sm={9}
       md={10}
-      className="d-flex justify-content-center align-items-center"
+      className="mt-5"
     >
       <Outlet />
     </Col>
