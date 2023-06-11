@@ -7,7 +7,7 @@ const Main = () => {
       as="main"
       sm={9}
       md={10}
-      className="mt-5"
+      className="mt-5 px-5"
     >
       <Outlet />
     </Col>

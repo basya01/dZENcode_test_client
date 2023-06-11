@@ -6,10 +6,23 @@
   border-radius: 7px;
   padding: 40px;
   width: 100%;
-
+  position: relative;
   &__products {
     max-height: 70vh;
     overflow-y: auto;
+  }
+  &__close_button {
+    position: absolute;
+    width: 40px;
+    height:40px;
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid $gray;
+    top: -20px;
+    right: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 

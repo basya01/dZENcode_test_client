@@ -399,7 +399,7 @@ const Orders = () => {
       </Col>
       {selected && (
         <Col lg={12} xl={8}>
-          <OrderFull order={selected} />
+          <OrderFull order={selected} onClose={() => setSelected(null)} />
         </Col>
       )}
     </Row>
