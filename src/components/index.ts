@@ -3,4 +3,7 @@ export { default as SideBar } from './Layout/SideBar';
 export { default as Main } from './Layout/Main';
 export { default as OrderFull } from './Order/OrderFull';
 export { default as OrderPreview } from './Order/OrderPreview';
-export { default as RemoveButton } from './RemoveButton';
+export { default as RemoveButton } from './Buttons/RemoveButton';
+export { default as CloseButton } from './Buttons/CloseButton';
+export { default as ModalLayout } from './Modals/ModalLayout';
+export { default as ModalDelete } from './Modals/ModalDelete';

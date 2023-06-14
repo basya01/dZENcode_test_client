@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
-import { RemoveButton } from '../..';
+import { CloseButton, ModalDelete, RemoveButton } from '../..';
 import { Order, Product } from '../../../models';
 
 import styles from './OrderFull.module.scss';
@@ -25,20 +25,7 @@ const OrderFull: React.FC<OrderFullProps> = ({ order, className, onClose }) => {
           </React.Fragment>
         ))}
       </div>
-      <div
-        className={styles.order__close_button}
-        role="button"
-        onClick={onClose}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 16 16"
-        >
-          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </div>
+      <CloseButton className={styles.order__close_button} onClick={onClose} />
     </div>
   );
 };
@@ -46,18 +33,37 @@ const OrderFull: React.FC<OrderFullProps> = ({ order, className, onClose }) => {
 interface ProductItemProps {
   product: Product;
   className?: string;
-  onDelete?: () => void;
 }
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-const ProductItem: React.FC<ProductItemProps> = ({
-  product,
-  className,
-  onDelete,
-}) => {
+const ProductItem: React.FC<ProductItemProps> = ({ product, className }) => {
+  const [open, setOpen] = useState(false);
+
+  const handlerRemoveProduct = () => {
+    setOpen(true);
+  };
+
+  const handlerCloseModal = () => {
+    setOpen(false);
+  };
+
   return (
     <Row className={clsx(styles.product_item, className, 'm-0 p-0')}>
+      <ModalDelete
+        open={open}
+        onClose={handlerCloseModal}
+        title="Вы действительно хотите удалить этот продукт?"
+      >
+        <div className="d-flex align-items-center">
+          <img
+            src={`${BASE_URL}${product.photo}`}
+            alt={product.title}
+            className={styles.product_item__photo}
+          />
+          <p className="h5 ml-3">{product.title}</p>
+        </div>
+      </ModalDelete>
       <Col
         className="d-flex align-items-center justify-content-between"
         md={1.5}
@@ -77,7 +83,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
         </p>
       </Col>
       <Col className="d-flex">
-        <RemoveButton className="ml-auto" onClick={onDelete} />
+        <RemoveButton className="ml-auto" onClick={handlerRemoveProduct} />
       </Col>
     </Row>
   );

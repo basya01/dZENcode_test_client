@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Order } from '../../../models';
 import { getDateData } from '../../../utils';
@@ -10,7 +10,7 @@ import styles from './OrderPreview.module.scss';
 import listIcon from '../../../assets/list.svg';
 import arrowIcon from '../../../assets/arrow.svg';
 
-import { RemoveButton } from '../..';
+import { ModalDelete, RemoveButton } from '../..';
 
 interface OrderPreviewProps {
   order: Order;
@@ -29,9 +29,28 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({
 }) => {
   const { day, month, year, monthStr } = getDateData(order.createdAt);
   const { usd, uah } = calculateTotalAmount(order.products || []);
-  
+  const [open, setOpen] = useState(false);
+
+  const handlerDeleteOrder = () => {
+    setOpen(true);
+  };
+
+  const handlerCloseModal = () => {
+    setOpen(false);
+  };
+
   return (
     <div className={clsx(styles.order, className)}>
+      <ModalDelete
+        title="Вы действительно хотите удалить этот приход?"
+        open={open}
+        onClose={handlerCloseModal}
+      >
+        <div>
+          <p className="h5">{order.title}</p>
+          <p>{`${day} / ${monthStr} / ${year}`}</p>
+        </div>
+      </ModalDelete>
       {!short && <h3 className="w-50">{order.title}</h3>}
       <div
         className={clsx(
@@ -67,7 +86,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({
               <p className={styles.order_secondary_text}>{`${usd} $`}</p>
               <p>{`${uah} UAH`}</p>
             </div>
-            <RemoveButton />
+            <RemoveButton onClick={handlerDeleteOrder} />
           </>
         )}
       </div>

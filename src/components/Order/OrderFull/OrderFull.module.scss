@@ -13,16 +13,8 @@
   }
   &__close_button {
     position: absolute;
-    width: 40px;
-    height:40px;
-    background: #fff;
-    border-radius: 20px;
-    border: 1px solid $gray;
     top: -20px;
     right: -20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
 

@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 import clsx from 'clsx';
 
-import removeIcon from '../../assets/remove.svg';
+import removeIcon from '../../../assets/remove.svg';
 
 import styles from './RemoveButton.module.scss';
 
