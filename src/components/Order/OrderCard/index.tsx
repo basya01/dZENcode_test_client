@@ -5,7 +5,7 @@ import { Order } from '../../../models';
 import { getDateData } from '../../../utils';
 import calculateTotalAmount from '../../../utils/calcTotaPriceProducts';
 
-import styles from './OrderPreview.module.scss';
+import styles from './OrderCard.module.scss';
 
 import listIcon from '../../../assets/list.svg';
 import arrowIcon from '../../../assets/arrow.svg';

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
-import { OrderFull, OrderPreview } from '../../components';
+import { OrderFull, OrderCard } from '../../components';
 import { Order } from '../../models';
 
 import styles from './Orders.module.scss';
@@ -385,9 +385,10 @@ const Orders = () => {
   return (
     <Row>
       <Col>
+        <h3 className='h2 mb-4'>Приходы / 3</h3>
         <div className={styles.orders} style={{ width: '100%' }}>
           {items.map((item) => (
-            <OrderPreview
+            <OrderCard
               selected={item.id === selected?.id}
               key={item.id}
               order={item}

@@ -1,0 +1,36 @@
+@import '../../../variables.scss';
+
+.product_card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  &__marker {
+    width: 8px;
+    height: 8px;
+    border-radius: 10px;
+    background: $green;
+  }
+  &__photo {
+    margin-left: 15px;
+    max-width: 70px;
+    max-height: 70px;
+  }
+  &_secondary_text {
+    color: $gray;
+    font-size: 13px;
+  }
+
+  &__guarantee {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__guarantee:first-child {
+    margin-bottom: 10px;
+  }
+  &__prices {
+    text-align: center;
+    width: fit-content;
+  }
+}
