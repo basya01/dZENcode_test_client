@@ -42,6 +42,9 @@ const Orders = () => {
                 short={!!selected}
               />
             ))}
+          {status === Status.FAILED && (
+            <p className="h3">😿 Не удалось загрузить данные</p>
+          )}
         </div>
       </Col>
       {selected && (
