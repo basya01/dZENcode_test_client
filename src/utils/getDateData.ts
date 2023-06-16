@@ -13,14 +13,28 @@ const months = [
   'Дек',
 ];
 
-const getDateData = (dateStr: string) => {
-  const date = new Date(dateStr);
+const daysOfWeek = [
+  'Воскресенье',
+  'Понедельник',
+  'Вторник',
+  'Среда',
+  'Четверг',
+  'Пятница',
+  'Суббота',
+];
+
+const getDateData = (dateInput: string | number) => {
+  const date = new Date(dateInput);
   const day = date.getDate();
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
-  const monthStr = months[month - 1];
-  
-  return { day, month, year, monthStr };
+  const monthStr = months[date.getMonth()];
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+  const dayOfWeek = daysOfWeek[date.getDay()];
+
+  return { day, month, year, monthStr, hours, minutes, seconds, dayOfWeek };
 };
 
 export default getDateData;
