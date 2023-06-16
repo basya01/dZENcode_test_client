@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
+import { useSearchParams } from 'react-router-dom';
 
 import { ProductCard } from '../../components';
+import CardSkeleton from '../../components/SkeletonCard';
 import {
   useAppDispatch,
   useAppSelector,
   useFetchProductTypes,
 } from '../../hooks';
+import { Status } from '../../models';
 import { fetchProducts } from '../../store/slices/products';
 
-import { useSearchParams } from 'react-router-dom';
 import styles from './Products.module.scss';
-import CardSkeleton from '../../components/SkeletonCard';
-import { Status } from '../../models';
 
 const Products = () => {
   const dispatch = useAppDispatch();

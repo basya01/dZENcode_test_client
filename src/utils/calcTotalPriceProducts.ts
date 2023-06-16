@@ -1,6 +1,6 @@
 import { Product } from '../models';
 
-const calculateTotalAmount = (products: Product[]) => {
+const calcTotalPriceProducts = (products: Product[]) => {
   const initialAmount = {
     usd: 0,
     uah: 0,
@@ -19,4 +19,4 @@ const calculateTotalAmount = (products: Product[]) => {
   return totalAmount;
 };
 
-export default calculateTotalAmount;
+export default calcTotalPriceProducts;
