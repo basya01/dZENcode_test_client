@@ -6,7 +6,7 @@ import { ModalDelete, RemoveButton } from '../..';
 import { Order } from '../../../models';
 import { getDateData } from '../../../utils';
 
-import calculateTotalAmount from '../../../utils/calcTotaPriceProducts';
+import calculateTotalAmount from '../../../utils/calcTotalPriceProducts';
 
 import styles from './OrderCard.module.scss';
 
