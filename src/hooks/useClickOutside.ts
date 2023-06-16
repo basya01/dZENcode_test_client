@@ -2,7 +2,10 @@ import { useEffect, useRef } from 'react';
 
 type EventCallback = (event: MouseEvent | TouchEvent) => void;
 
-function useClickOutside(ref: React.RefObject<HTMLElement>, callback: EventCallback) {
+const useClickOutside = (
+  ref: React.RefObject<HTMLElement>,
+  callback: EventCallback
+) => {
   const savedCallback = useRef<EventCallback>(callback);
 
   useEffect(() => {
@@ -20,6 +23,6 @@ function useClickOutside(ref: React.RefObject<HTMLElement>, callback: EventCallb
       document.removeEventListener('touchstart', handleClickOutside);
     };
   }, [ref]);
-}
+};
 
 export default useClickOutside;
