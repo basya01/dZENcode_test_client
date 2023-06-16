@@ -1,10 +1,12 @@
+import clsx from 'clsx';
 import React from 'react';
+
 import { Product } from '../../models';
 
-import styles from './ProductCard.module.scss';
-import clsx from 'clsx';
 import { Card, Col, Row } from 'react-bootstrap';
 import { getDateData } from '../../utils';
+
+import styles from './ProductCard.module.scss';
 
 interface ProductProps {
   product: Product;
@@ -24,7 +26,7 @@ const ProductCard: React.FC<ProductProps> = ({ product, className }) => {
   return (
     <Card>
       <Card.Body className={clsx(className)}>
-        <Row className="d-flex align-items-center text-center">
+        <Row className="d-flex align-items-center">
           <Col className="d-flex align-items-center">
             <div className={styles.product_card__marker}></div>
             <img

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
-import { OrderFull, OrderCard } from '../../components';
+import { OrderCard, OrderFull } from '../../components';
 import { Order } from '../../models';
 
 import styles from './Orders.module.scss';

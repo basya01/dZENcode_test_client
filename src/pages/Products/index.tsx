@@ -1,5 +1,7 @@
-import React from 'react';
 import { ProductCard } from '../../components';
+
+import { useState } from 'react';
+import { Dropdown } from 'react-bootstrap';
 
 import styles from './Products.module.scss';
 
@@ -348,13 +350,75 @@ const products = [
   },
 ];
 
+const types = [
+  {
+    id: 1,
+    name: 'Телефоны',
+  },
+  {
+    id: 2,
+    name: 'Мониторы',
+  },
+  {
+    id: 3,
+    name: 'Ноутбуки',
+  },
+];
+
+interface SelectedType {
+  id: number | null;
+  name: string;
+}
+
 const Products = () => {
+  const initialType = {
+    id: null,
+    name: 'Тип продукта',
+  };
+
+  const [selectedType, setSelectedType] = useState<SelectedType>(initialType);
+
+  const selectTypeHandler = (
+    eventKey: string | null,
+    e: React.SyntheticEvent<unknown>
+  ) => {
+    const target = e.target as EventTarget & {
+      textContent: string;
+    };
+
+    if (eventKey === '0') {
+      setSelectedType(initialType);
+      return;
+    }
+
+    setSelectedType({ id: Number(eventKey), name: target.textContent });
+  };
+
   return (
     <div>
-      <h3 className="h2 mb-4">Продукты / 9</h3>
+      <h3 className="h2 mb-4">Продукты / {products.length}</h3>
+      <Dropdown onSelect={selectTypeHandler}>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          {selectedType.name}
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item eventKey={0} disabled={!selectedType.id}>
+            Очистить
+          </Dropdown.Item>
+          {types.map((type) => (
+            <Dropdown.Item
+              eventKey={type.id}
+              key={type.id}
+              active={type.id === selectedType.id}
+            >
+              {type.name}
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
       <div className={styles.products}>
         {products.map((product) => (
-          <ProductCard product={product} />
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>
