@@ -21,7 +21,7 @@ const ProductCard: React.FC<ProductProps> = ({ product, className }) => {
 
   const [defaultPrice, additionalPrice] = product.price[0].isDefault
     ? product.price
-    : product.price.reverse();
+    : [...product.price].reverse();
 
   return (
     <Card>
