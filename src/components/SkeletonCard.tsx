@@ -12,7 +12,6 @@ const CardSkeleton: React.FC<SkeletonCardProps> = ({ width, height }) => (
       speed={2}
       width={width}
       height={height}
-      viewBox={`0 0 ${width} ${height}`}
       backgroundColor="#f3f3f3"
       foregroundColor="#ecebeb"
     >
