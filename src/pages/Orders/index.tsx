@@ -1,23 +1,23 @@
 import { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
-import { OrderCard, OrderFull } from '../../components';
-import { Order } from '../../models';
+import { OrderCard, OrderFull, SkeletonCard } from '../../components';
+import { Order, Status } from '../../models';
 
-import styles from './Orders.module.scss';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchOrders } from '../../store/slices/orders';
+import styles from './Orders.module.scss';
 
 const Orders = () => {
   const [selected, setSelected] = useState<Order | null>(null);
-  const { orders } = useAppSelector((state) => state.orders);
+  const { orders, totalOrders, status } = useAppSelector(
+    (state) => state.orders
+  );
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchOrders());
   }, []);
-
-  console.log(orders);
 
   const handlerSelectProduct = (order: Order) => {
     setSelected(order);
@@ -26,17 +26,22 @@ const Orders = () => {
   return (
     <Row>
       <Col>
-        <h3 className="h2 mb-4">Приходы / 3</h3>
+        <h3 className="h2 mb-4">Приходы / {totalOrders}</h3>
         <div className={styles.orders}>
-          {orders.map((item) => (
-            <OrderCard
-              selected={item.id === selected?.id}
-              key={item.id}
-              order={item}
-              onOpen={handlerSelectProduct}
-              short={!!selected}
-            />
-          ))}
+          {status === Status.PENDING &&
+            [...new Array(7)].map((_, index) => (
+              <SkeletonCard key={index} width="100%" height={78} />
+            ))}
+          {status === Status.SUCCEEDED &&
+            orders.map((item) => (
+              <OrderCard
+                selected={item.id === selected?.id}
+                key={item.id}
+                order={item}
+                onOpen={handlerSelectProduct}
+                short={!!selected}
+              />
+            ))}
         </div>
       </Col>
       {selected && (
