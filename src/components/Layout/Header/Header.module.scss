@@ -1,0 +1,9 @@
+@import '../../../../variables.scss';
+
+.header {
+  flex-shrink: 0;
+}
+
+.brand {
+  color: $green !important;
+}

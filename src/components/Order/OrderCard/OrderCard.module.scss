@@ -1,0 +1,39 @@
+@import '../../../../variables.scss';
+
+.order {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  &__list_icon {
+    width: 15px;
+    height: 15px;
+    vertical-align: top;
+    &_wrapper {
+      border: 1px solid $gray;
+      border-radius: 50px;
+      padding: 10px;
+    }
+  }
+  &__remove_icon {
+    width: 17px;
+  }
+  &_secondary_text {
+    color: $gray;
+    font-size: 13px;
+  }
+  &__selected_arrow {
+    width: 40px;
+    background: $gray;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    &__icon {
+      width: 25px;
+    }
+  }
+}

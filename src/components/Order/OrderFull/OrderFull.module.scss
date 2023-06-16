@@ -1,0 +1,40 @@
+@import '../../../../variables.scss';
+
+.order {
+  background: #fff;
+  border: 1px solid $gray;
+  border-radius: 7px;
+  padding: 40px;
+  width: 100%;
+  position: relative;
+  &__products {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  &__close_button {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+  }
+}
+
+.product_item {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  &__photo {
+    max-width: 70px;
+    max-height: 70px;
+    margin-left: 10px;
+  }
+  &_secondary_text {
+    color: $gray;
+    font-size: 13px;
+  }
+  &__marker {
+    width: 8px;
+    height: 8px;
+    border-radius: 10px;
+    background: $green;
+  }
+}
