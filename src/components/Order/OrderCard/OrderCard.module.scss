@@ -1,14 +1,9 @@
 @import '../../../../variables.scss';
 
 .order {
-  border: 1px solid $gray;
-  padding: 15px 20px;
-  border-radius: 7px;
-  background: #fff;
   display: flex;
   align-items: center;
   gap: 20px;
-  color: $dark-gray;
   position: relative;
   &__list_icon {
     width: 15px;

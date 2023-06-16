@@ -1,16 +1,17 @@
 import clsx from 'clsx';
 import React, { useState } from 'react';
+import { Card, Col, Row } from 'react-bootstrap';
 
+import { ModalDelete, RemoveButton } from '../..';
 import { Order } from '../../../models';
 import { getDateData } from '../../../utils';
+
 import calculateTotalAmount from '../../../utils/calcTotaPriceProducts';
 
 import styles from './OrderCard.module.scss';
 
-import listIcon from '../../../assets/list.svg';
 import arrowIcon from '../../../assets/arrow.svg';
-
-import { ModalDelete, RemoveButton } from '../..';
+import listIcon from '../../../assets/list.svg';
 
 interface OrderPreviewProps {
   order: Order;
@@ -40,7 +41,65 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({
   };
 
   return (
-    <div className={clsx(styles.order, className)}>
+    <Card>
+      <Card.Body className={clsx(styles.order, className)}>
+        <Row className="w-100 d-flex align-items-center">
+          {!short && (
+            <Col>
+              <h3 className="w-">{order.title}</h3>
+            </Col>
+          )}
+          <Col>
+            <div className="d-flex align-items-center">
+              <div
+                className={styles.order__list_icon_wrapper}
+                role="button"
+                onClick={() => onOpen && onOpen(order)}
+              >
+                <img
+                  draggable="false"
+                  className={styles.order__list_icon}
+                  src={listIcon}
+                  alt="open_products_icon"
+                />
+              </div>
+              <div className="ml-2">
+                <p>{order.products?.length}</p>
+                <p className={styles.order_secondary_text}>Продукта</p>
+              </div>
+            </div>
+          </Col>
+          <Col>
+            {' '}
+            <div className="d-flex flex-column align-items-center">
+              <p
+                className={styles.order_secondary_text}
+              >{`${day} / ${month}`}</p>
+              <p>{`${day} / ${monthStr} / ${year}`}</p>
+            </div>
+          </Col>
+          {!short && (
+            <>
+              <Col>
+                <div className="d-flex flex-column align-items-center">
+                  <p className={styles.order_secondary_text}>{`${usd} $`}</p>
+                  <p>{`${uah} UAH`}</p>
+                </div>
+              </Col>
+              <RemoveButton onClick={handlerDeleteOrder} />
+            </>
+          )}
+          {selected && (
+            <div className={styles.order__selected_arrow}>
+              <img
+                className={styles.order__selected_arrow__icon}
+                src={arrowIcon}
+                alt=">"
+              />
+            </div>
+          )}
+        </Row>
+      </Card.Body>
       <ModalDelete
         title="Вы действительно хотите удалить этот приход?"
         open={open}
@@ -51,55 +110,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({
           <p>{`${day} / ${monthStr} / ${year}`}</p>
         </div>
       </ModalDelete>
-      {!short && <h3 className="w-50">{order.title}</h3>}
-      <div
-        className={clsx(
-          'd-flex justify-content-between align-items-center pr-5',
-          !short ? 'w-50' : 'w-100'
-        )}
-      >
-        <div className="d-flex align-items-center">
-          <div
-            className={styles.order__list_icon_wrapper}
-            role="button"
-            onClick={() => onOpen && onOpen(order)}
-          >
-            <img
-              draggable="false"
-              className={styles.order__list_icon}
-              src={listIcon}
-              alt="open_products_icon"
-            />
-          </div>
-          <div className="ml-2">
-            <p>{order.products?.length}</p>
-            <p className={styles.order_secondary_text}>Продукта</p>
-          </div>
-        </div>
-        <div className="d-flex flex-column align-items-center">
-          <p className={styles.order_secondary_text}>{`${day} / ${month}`}</p>
-          <p>{`${day} / ${monthStr} / ${year}`}</p>
-        </div>
-        {!short && (
-          <>
-            <div className="d-flex flex-column align-items-center">
-              <p className={styles.order_secondary_text}>{`${usd} $`}</p>
-              <p>{`${uah} UAH`}</p>
-            </div>
-            <RemoveButton onClick={handlerDeleteOrder} />
-          </>
-        )}
-      </div>
-      {selected && (
-        <div className={styles.order__selected_arrow}>
-          <img
-            className={styles.order__selected_arrow__icon}
-            src={arrowIcon}
-            alt=">"
-          />
-        </div>
-      )}
-    </div>
+    </Card>
   );
 };
 
