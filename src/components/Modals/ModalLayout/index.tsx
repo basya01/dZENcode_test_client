@@ -1,10 +1,9 @@
-import clsx from 'clsx';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
+import { CloseButton } from '../..';
 import { useClickOutside } from '../../../hooks';
 import styles from './ModalLayout.module.scss';
-import { CloseButton } from '../..';
 
 interface ModalProps {
   open: boolean;

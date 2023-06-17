@@ -1,5 +1,15 @@
 @import '../../../../variables.scss';
 
+.sidebar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed !important;
+  height: 100%;
+  background: $gray-light;
+  box-shadow: 6px 7px 14px -8px rgba(0,0,0,0.26);
+}
+
 .sidebar__list {
   gap: 20px;
   color: $dark-gray;
@@ -12,5 +22,12 @@
       box-shadow: inset 0 -3px 0 $green;
       box-sizing: border-box;
     }
+  }
+}
+@media only screen and (max-width: 576px) {
+  .sidebar {
+    padding: 15px 0;
+    position: relative !important;
+    height: fit-content !important;
   }
 }
