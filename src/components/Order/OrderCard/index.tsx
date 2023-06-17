@@ -45,7 +45,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({
       <Card.Body className={clsx(styles.order, className)}>
         <Row className="w-100 d-flex align-items-center">
           {!short && (
-            <Col>
+            <Col lg={6}>
               <h3 className="w-">{order.title}</h3>
             </Col>
           )}
