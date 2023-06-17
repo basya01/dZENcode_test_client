@@ -10,7 +10,7 @@ const Main = () => {
       as="main"
       sm={9}
       md={10}
-      className={clsx('mt-5 px-5', styles.animated_routes_container)}
+      className={clsx(styles.routes_container)}
     >
       <Outlet />
     </Col>

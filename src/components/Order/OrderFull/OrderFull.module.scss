@@ -7,10 +7,6 @@
   padding: 40px;
   width: 100%;
   position: relative;
-  &__products {
-    max-height: 70vh;
-    overflow-y: auto;
-  }
   &__close_button {
     position: absolute;
     top: -20px;
