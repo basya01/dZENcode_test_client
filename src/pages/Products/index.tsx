@@ -67,8 +67,8 @@ const Products = () => {
       </Dropdown>
       <div className={styles.products}>
         {status === Status.PENDING &&
-          [...new Array(6)].map(() => (
-            <CardSkeleton width="100%" height={110} />
+          [...new Array(6)].map((_, index) => (
+            <CardSkeleton key={index} width="100%" height={110} />
           ))}
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
