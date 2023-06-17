@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import clsx from 'clsx';
+import { useLayoutEffect, useState } from 'react';
+import { Col } from 'react-bootstrap';
+import { Link, useLocation } from 'react-router-dom';
 
 import styles from './SideBar.module.scss';
 
@@ -11,7 +11,21 @@ const sidebarItems = [
 ];
 
 const SideBar = () => {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState<number | null>(null);
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    switch (location.pathname) {
+      case '/':
+        setActive(1);
+        break;
+      case '/products':
+        setActive(2);
+        break;
+      default:
+        setActive(null);
+    }
+  }, [location]);
 
   return (
     <Col sm={3} md={2} className={styles.sidebar}>
@@ -30,7 +44,6 @@ const SideBar = () => {
                 styles.sidebar__list__item,
                 active === item.id && styles.sidebar__list__item_active
               )}
-              onClick={() => setActive(item.id)}
             >
               {item.value}
             </li>
