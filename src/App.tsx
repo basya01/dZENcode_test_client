@@ -2,7 +2,7 @@ import { Row } from 'react-bootstrap';
 import { Route, Routes } from 'react-router-dom';
 
 import { Header, SideBar, Main } from './components';
-import { Orders, Products } from './pages';
+import { NotFound, Orders, Products } from './pages';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
@@ -16,6 +16,7 @@ const App = () => (
         <Route path="/" element={<Main />}>
           <Route path="/" element={<Orders />} />
           <Route path="/products" element={<Products />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Row>
