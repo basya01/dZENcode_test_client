@@ -19,7 +19,7 @@ const App = () => (
         </Route>
       </Routes>
     </Row>
-    <div id='modal_root'></div>
+    <div id="modal_root"></div>
   </div>
 );
 
