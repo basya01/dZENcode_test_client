@@ -6,6 +6,7 @@ import { Order, Status } from '../../models';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchOrders } from '../../store/slices/orders';
+
 import styles from './Orders.module.scss';
 
 const Orders = () => {
@@ -21,6 +22,10 @@ const Orders = () => {
 
   const handlerSelectProduct = (order: Order) => {
     setSelected(order);
+  };
+
+  const handlerCloseOrderFull = () => {
+    setSelected(null);
   };
 
   return (
@@ -49,7 +54,12 @@ const Orders = () => {
       </Col>
       {selected && (
         <Col lg={12} xl={8}>
-          <OrderFull order={selected} onClose={() => setSelected(null)} />
+          <OrderFull
+            id="orders_order_full"
+            className={styles.order_full_animation}
+            order={selected}
+            onClose={handlerCloseOrderFull}
+          />
         </Col>
       )}
     </Row>

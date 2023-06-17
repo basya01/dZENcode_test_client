@@ -1,8 +1,13 @@
+@import 'animate.css';
+
 .orders {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: width 0.2s ease-out;
   max-height: 80vh;
   overflow-y: auto;
+}
+
+.order_full_animation {
+  animation: fadeInDown 0.5s;
 }

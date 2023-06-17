@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { useState } from 'react';
+import React, { HTMLAttributes, forwardRef, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 import { CloseButton, ModalDelete, RemoveButton } from '../..';
@@ -7,28 +7,29 @@ import { Order, Product } from '../../../models';
 
 import styles from './OrderFull.module.scss';
 
-interface OrderFullProps {
+interface OrderFullProps extends HTMLAttributes<HTMLDivElement> {
   order: Order;
-  className?: string;
   onClose?: () => void;
 }
 
-const OrderFull: React.FC<OrderFullProps> = ({ order, className, onClose }) => {
-  return (
-    <div className={clsx(className, styles.order)}>
-      <h2 className="font-weight-bold h3">{order.title}</h2>
-      <div className={styles.order__products}>
-        {order.products?.map((product) => (
-          <React.Fragment key={product.id}>
-            <hr />
-            <ProductItem product={product} />
-          </React.Fragment>
-        ))}
+const OrderFull = forwardRef<HTMLDivElement, OrderFullProps>(
+  ({ order, className, onClose, ...props }, ref) => {
+    return (
+      <div ref={ref} className={clsx(className, styles.order)} {...props}>
+        <h2 className="font-weight-bold h3">{order.title}</h2>
+        <div className={styles.order__products}>
+          {order.products?.map((product) => (
+            <React.Fragment key={product.id}>
+              <hr />
+              <ProductItem product={product} />
+            </React.Fragment>
+          ))}
+        </div>
+        <CloseButton className={styles.order__close_button} onClick={onClose} />
       </div>
-      <CloseButton className={styles.order__close_button} onClick={onClose} />
-    </div>
-  );
-};
+    );
+  }
+);
 
 interface ProductItemProps {
   product: Product;
