@@ -1,0 +1,11 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  height: 100%;
+  justify-content: center;
+  &__cat {
+    font-size: 200px;
+  }
+}
