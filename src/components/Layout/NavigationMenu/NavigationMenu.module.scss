@@ -7,14 +7,21 @@
   position: fixed !important;
   height: 100%;
   background: $gray-light;
-  box-shadow: 6px 7px 14px -8px rgba(0,0,0,0.26);
+  box-shadow: 6px 7px 14px -8px rgba(0, 0, 0, 0.26);
 }
 
 .sidebar__list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
   gap: 20px;
   color: $dark-gray;
 
   &__item {
+    cursor: pointer;
+    padding-bottom: 5px;
     width: min-content;
     margin: 0 auto;
 

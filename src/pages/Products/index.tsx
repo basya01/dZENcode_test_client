@@ -24,6 +24,7 @@ const Products = () => {
     (state) => state.products
   );
   const { types } = useFetchProductTypes();
+
   useEffect(() => {
     if (selectedType) {
       dispatch(fetchProducts(selectedType));

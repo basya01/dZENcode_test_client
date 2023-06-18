@@ -5,7 +5,6 @@ import { TopMenu, NavigationMenu, Main } from './components';
 import { NotFound, Orders, Products } from './pages';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.scss';
 
 const App = () => (
   <div className="">

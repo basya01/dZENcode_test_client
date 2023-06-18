@@ -46,7 +46,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({
         <Row className="w-100 d-flex align-items-center">
           {!short && (
             <Col lg={6}>
-              <h3 className="w-">{order.title}</h3>
+              <h3>{order.title}</h3>
             </Col>
           )}
           <Col>
