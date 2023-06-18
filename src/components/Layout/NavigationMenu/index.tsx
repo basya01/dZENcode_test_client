@@ -3,14 +3,14 @@ import { useLayoutEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 
-import styles from './SideBar.module.scss';
+import styles from './NavigationMenu.module.scss';
 
 const sidebarItems = [
   { id: 1, value: 'Приход', to: '/' },
   { id: 2, value: 'Продукты', to: '/products' },
 ];
 
-const SideBar = () => {
+const NavigationMenu = () => {
   const [active, setActive] = useState<number | null>(null);
   const location = useLocation();
 
@@ -54,4 +54,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default NavigationMenu;

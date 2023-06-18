@@ -10,11 +10,11 @@ import {
   setLocalStorageItem,
 } from '../../../utils';
 
-import styles from './Header.module.scss';
+import styles from './TopMenu.module.scss';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-const Header = () => {
+const TopMenu = () => {
   const [sessionCount, setSessionCount] = useState(0);
   const [currentDate, setCurrentDate] = useState(Date.now());
 
@@ -68,4 +68,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default TopMenu;
