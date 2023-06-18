@@ -5,12 +5,11 @@ import { TopMenu, NavigationMenu, Main } from './components';
 import { NotFound, Orders, Products } from './pages';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.scss';
 
 const App = () => (
-  <div className="vh-100 d-flex flex-column">
+  <div className="">
     <TopMenu />
-    <Row className="m-0 flex-grow-1">
+    <Row className="m-0">
       <NavigationMenu />
       <Routes>
         <Route path="/" element={<Main />}>

@@ -39,10 +39,12 @@ const TopMenu = () => {
       clearInterval(interval);
     };
   }, []);
+
   const { year, monthStr, day, hours, minutes, dayOfWeek } =
     getDateData(currentDate);
+
   return (
-    <header className={clsx('bg-white', styles.header)}>
+    <header className={clsx(styles.header)}>
       <Container className="d-flex align-items-center py-3 justify-content-between">
         <h1 className={styles.brand}>INVENTORY</h1>
         <div className="d-flex align-items-center">
